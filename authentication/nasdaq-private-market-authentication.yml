@@ -1,0 +1,77 @@
+generated: '2026-08-04'
+method: searched
+source: https://fe.login.secondmarket.com/.well-known/openid-configuration
+docs: https://www.nasdaqprivatemarket.com/data-intelligence/
+notes: 'Nasdaq Private Market publishes no OpenAPI and no developer authentication
+  documentation. This profile is derived entirely from the live OpenID Connect / RFC
+  8414 discovery documents served by the platform identity host, plus the published
+  access tiers on the Data & Intelligence page. It describes how a human signs in to
+  the NPM / SecondMarket trading platform — it is NOT a documented machine-to-machine
+  contract for the Tape D data API, which is sold on the Premium (Talk to Sales) tier
+  and delivered through Nasdaq Data Link.'
+summary:
+  types:
+  - openIdConnect
+  - oauth2
+  api_key_in: []
+  oauth2_flows:
+  - authorizationCode
+  - implicit
+  - clientCredentials
+  - deviceCode
+  - refreshToken
+  pkce: true
+  pkce_methods:
+  - S256
+  dynamic_client_registration: true
+schemes:
+- name: NPM Platform OIDC (Okta)
+  type: openIdConnect
+  openIdConnectUrl: https://fe.login.secondmarket.com/.well-known/openid-configuration
+  issuer: https://fe.login.secondmarket.com
+  endpoints:
+    authorization: https://fe.login.secondmarket.com/oauth2/v1/authorize
+    token: https://fe.login.secondmarket.com/oauth2/v1/token
+    userinfo: https://fe.login.secondmarket.com/oauth2/v1/userinfo
+    jwks: https://fe.login.secondmarket.com/oauth2/v1/keys
+    registration: https://fe.login.secondmarket.com/oauth2/v1/clients
+    introspection: https://fe.login.secondmarket.com/oauth2/v1/introspect
+    revocation: https://fe.login.secondmarket.com/oauth2/v1/revoke
+  id_token_signing_alg:
+  - RS256
+  response_types:
+  - code
+  - id_token
+  - code id_token
+  - code token
+  - id_token token
+  - code id_token token
+  token_endpoint_auth_methods:
+  - client_secret_basic
+  - client_secret_post
+  - client_secret_jwt
+  - private_key_jwt
+  - none
+  sources:
+  - well-known/nasdaq-private-market-openid-configuration.json
+- name: NPM Platform OAuth 2.0 Authorization Server
+  type: oauth2
+  metadata: https://fe.login.secondmarket.com/.well-known/oauth-authorization-server
+  issuer: https://fe.login.secondmarket.com
+  grant_types:
+  - authorization_code
+  - implicit
+  - refresh_token
+  - password
+  - client_credentials
+  - urn:ietf:params:oauth:grant-type:device_code
+  - urn:openid:params:grant-type:ciba
+  sources:
+  - well-known/nasdaq-private-market-oauth-authorization-server.json
+gaps:
+- No public API authentication guide — the "Learn about API Access" link on the Data
+  & Intelligence page is an empty "#" anchor.
+- No API key / token provisioning surface is documented for the Tape D dataset; the
+  only published path is "Talk to Sales" for the Premium tier.
+- No scope reference for the data products; the scopes advertised by the identity host
+  are identity/profile scopes and Okta org-management scopes, not NPM business scopes.

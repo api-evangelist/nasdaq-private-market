@@ -42,5 +42,9 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Nasdaq Private Market is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://forgeglobal.com/nasdaq-private-market_stock/
+Nasdaq Private Market (NPM) operates infrastructure for the secondary market in pre-IPO private company equity — tender offers, company buybacks, auctions, block trades and a settlement engine for private share transfers — alongside a Data & Intelligence business built on NPM Price, a daily price estimate for 400+ liquid private companies, and Tape D, a private-company pricing dataset combining primary round data, secondary market transactions, mutual fund marks and 409A valuations. Securities are offered through NPM Securities, LLC (member FINRA/SIPC); SecondMarket Financial, LLC is an SEC-registered investment adviser and wholly owned subsidiary.
+
+Programmatic access to Tape D is sold on the Premium tier and distributed exclusively through Nasdaq Data Link; NPM itself publishes no developer portal, API reference, or machine-readable specification.
+
+- https://www.nasdaqprivatemarket.com/
+- https://www.nasdaqprivatemarket.com/data-intelligence/

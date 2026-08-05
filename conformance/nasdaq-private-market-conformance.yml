@@ -1,0 +1,85 @@
+generated: '2026-08-04'
+method: searched
+source: live /.well-known/ discovery probes + https://www.nasdaqprivatemarket.com/data-intelligence/
+notes: 'Assertions are limited to what Nasdaq Private Market publishes publicly. NPM
+  ships no OpenAPI, so no spec-derived conformance is possible; the standards recorded
+  as conforming are evidenced by the live OIDC/OAuth discovery documents on the platform
+  identity host, by TLS/DNS probes, or by compliance claims published on NPM''s own
+  site.'
+standards:
+- id: openid-connect-discovery
+  conforms: true
+  evidence: https://fe.login.secondmarket.com/.well-known/openid-configuration returns
+    200 application/json with issuer, authorization_endpoint, token_endpoint, jwks_uri
+- id: oauth2
+  conforms: true
+  evidence: 'authorization_code, client_credentials, refresh_token and device_code grants
+    advertised in the discovery documents'
+- id: rfc8414-oauth-authorization-server-metadata
+  conforms: true
+  evidence: https://fe.login.secondmarket.com/.well-known/oauth-authorization-server
+    returns 200 application/json
+- id: rfc7636-pkce
+  conforms: true
+  evidence: code_challenge_methods_supported = [S256]
+- id: rfc7591-dynamic-client-registration
+  conforms: true
+  evidence: registration_endpoint = https://fe.login.secondmarket.com/oauth2/v1/clients
+- id: rfc7662-token-introspection
+  conforms: true
+  evidence: introspection_endpoint advertised in openid-configuration
+- id: rfc7009-token-revocation
+  conforms: true
+  evidence: revocation_endpoint advertised in openid-configuration
+- id: soc2-type-ii
+  conforms: true
+  evidence: '"SOC 2 Type II" named in the data-governance section of https://www.nasdaqprivatemarket.com/data-intelligence/'
+- id: tls13
+  conforms: true
+  evidence: 'TLSv1.3 negotiated on www.nasdaqprivatemarket.com and fe.secondmarket.com
+    (see security/nasdaq-private-market-domain-security.yml); "TLS 1.3 in transit" claimed
+    on the Data & Intelligence page'
+- id: encryption-at-rest
+  conforms: true
+  evidence: '"AES-256 encryption at rest" claimed on https://www.nasdaqprivatemarket.com/data-intelligence/'
+- id: finra-sipc
+  conforms: true
+  evidence: 'securities offered by NPM Securities, LLC, member FINRA/SIPC — disclosed
+    in the site footer and at https://www.nasdaqprivatemarket.com/disclosures-disclaimers/'
+- id: sec-registered-investment-adviser
+  conforms: true
+  evidence: SecondMarket Financial, LLC disclosed as an SEC-registered investment adviser
+    and wholly owned NPM subsidiary
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: no /.well-known/security.txt on any NPM host (404 on www.nasdaqprivatemarket.com,
+    405 on fe.login.secondmarket.com)
+- id: rfc9727-api-catalog
+  conforms: false
+  evidence: /.well-known/api-catalog returns 404
+- id: openapi
+  conforms: false
+  evidence: no OpenAPI/Swagger document found on any NPM or platform host (see x-coverage
+    in apis.yml)
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: no public API error reference published
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: no deprecation or sunset policy published
+- id: a2a
+  conforms: false
+  evidence: no agent card at /.well-known/agent-card.json or /.well-known/agent.json
+    on any host
+- id: mcp
+  conforms: false
+  evidence: no Model Context Protocol server advertised or discoverable
+- id: llms-txt
+  conforms: false
+  evidence: /llms.txt returns 404 on www.nasdaqprivatemarket.com
+- id: dnssec
+  conforms: false
+  evidence: no DNSKEY for nasdaqprivatemarket.com or secondmarket.com
+- id: caa
+  conforms: false
+  evidence: no CAA records for nasdaqprivatemarket.com or secondmarket.com

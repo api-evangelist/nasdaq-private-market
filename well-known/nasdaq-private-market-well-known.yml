@@ -1,0 +1,78 @@
+generated: '2026-08-04'
+method: searched
+source: live probes of every Nasdaq Private Market host
+notes: 'The only host serving real /.well-known/ documents is the platform identity
+  host fe.login.secondmarket.com (an Okta tenant fronting the NPM / SecondMarket trading
+  platform). The marketing site www.nasdaqprivatemarket.com returns a WordPress 404
+  for every /.well-known/ path, and the platform SPA hosts fe.secondmarket.com and
+  secondmarket.com are catch-all single-page apps that answer HTTP 200 with an HTML
+  shell for every path — those 200s are false positives and are recorded as such below.'
+hosts:
+- host: https://fe.login.secondmarket.com
+  role: identity provider (Okta) for the NPM / SecondMarket trading platform
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: application/json
+    file: nasdaq-private-market-openid-configuration.json
+    spec: OpenID Connect Discovery 1.0
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json
+    file: nasdaq-private-market-oauth-authorization-server.json
+    spec: RFC 8414
+  - path: /.well-known/security.txt
+    status: 405
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: https://www.nasdaqprivatemarket.com
+  role: marketing / company site (WordPress)
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: https://fe.secondmarket.com
+  role: trading platform SPA
+  catch_all_spa: true
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    body: text/html SPA shell — not a security.txt (false positive)
+  - path: /.well-known/agent-card.json
+    status: 200
+    body: text/html SPA shell — not an AgentCard (false positive)
+  - path: /.well-known/openid-configuration
+    status: 200
+    body: text/html SPA shell — not a discovery document (false positive)
+  - path: /llms.txt
+    status: 200
+    body: text/html SPA shell — not an llms.txt (false positive)
+- host: https://secondmarket.com
+  role: platform apex
+  catch_all_spa: true
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    body: text/html SPA shell — not a security.txt (false positive)
+  - path: /.well-known/agent-card.json
+    status: 200
+    body: text/html SPA shell — not an AgentCard (false positive)
+missing:
+- security.txt (RFC 9116) is not published on any Nasdaq Private Market host
+- no /.well-known/api-catalog (RFC 9727)
+- no A2A agent card at either /.well-known/agent-card.json or /.well-known/agent.json

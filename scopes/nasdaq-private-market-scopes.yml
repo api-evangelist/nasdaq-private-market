@@ -1,0 +1,66 @@
+generated: '2026-08-04'
+method: searched
+source: https://fe.login.secondmarket.com/.well-known/openid-configuration
+notes: 'Nasdaq Private Market publishes no OAuth scope reference for its data or trading
+  APIs. The scopes recorded here are the ones actually advertised by the platform identity
+  host (an Okta tenant) in its live discovery documents. The OIDC scopes are standard
+  OpenID Connect identity scopes; the RFC 8414 document additionally advertises Okta''s
+  own org-management scope set (okta.*), which governs administration of the identity
+  tenant and is NOT an NPM business API scope surface. No scope maps to Tape D, NPM
+  Price, or any other NPM data product.'
+schemes:
+- name: NPM Platform OIDC (Okta)
+  source: well-known/nasdaq-private-market-openid-configuration.json
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://fe.login.secondmarket.com/oauth2/v1/authorize
+    tokenUrl: https://fe.login.secondmarket.com/oauth2/v1/token
+  - flow: implicit
+    authorizationUrl: https://fe.login.secondmarket.com/oauth2/v1/authorize
+scopes:
+- scope: openid
+  description: Request an OpenID Connect ID token for the signed-in platform user.
+  flows: [authorizationCode, implicit]
+  sources: [well-known/nasdaq-private-market-openid-configuration.json]
+- scope: email
+  description: Access to the user's email address and email_verified claim.
+  flows: [authorizationCode, implicit]
+  sources: [well-known/nasdaq-private-market-openid-configuration.json]
+- scope: profile
+  description: Access to basic profile claims (name, given_name, family_name, locale,
+    picture, updated_at).
+  flows: [authorizationCode, implicit]
+  sources: [well-known/nasdaq-private-market-openid-configuration.json]
+- scope: address
+  description: Access to the user's address claim.
+  flows: [authorizationCode, implicit]
+  sources: [well-known/nasdaq-private-market-openid-configuration.json]
+- scope: phone
+  description: Access to the user's phone_number and phone_number_verified claims.
+  flows: [authorizationCode, implicit]
+  sources: [well-known/nasdaq-private-market-openid-configuration.json]
+- scope: offline_access
+  description: Issue a refresh token so the client can renew access without user interaction.
+  flows: [authorizationCode]
+  sources: [well-known/nasdaq-private-market-openid-configuration.json]
+- scope: groups
+  description: Access to the user's group memberships on the platform identity tenant.
+  flows: [authorizationCode, implicit]
+  sources: [well-known/nasdaq-private-market-openid-configuration.json]
+identity_platform_scopes:
+  note: 'Advertised by /.well-known/oauth-authorization-server — Okta org-management
+    scopes for administering the identity tenant itself. Recorded for completeness;
+    these are not Nasdaq Private Market API scopes.'
+  source: well-known/nasdaq-private-market-oauth-authorization-server.json
+  count: 60+
+  examples:
+  - okta.users.read
+  - okta.users.manage
+  - okta.groups.read
+  - okta.apps.read
+  - okta.policies.manage
+  - okta.logs.read
+  - okta.sessions.manage
+gaps:
+- No scope or permission reference is published for the Tape D API or any NPM data
+  product.
