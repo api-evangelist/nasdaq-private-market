@@ -15,7 +15,7 @@ url: https://raw.githubusercontent.com/api-evangelist/nasdaq-private-market/refs
 image: https://www.nasdaqprivatemarket.com/wp-content/uploads/2026/05/logo-header.svg
 x-type: company
 x-source: harvest:secondary-market
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-08-04'
 modified: '2026-08-04'
 tags:
