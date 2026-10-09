@@ -9,10 +9,14 @@ front_door_ai:
   final_host: www.nasdaqprivatemarket.com
   ownership: own
   owner: nasdaq-private-market
-  shares_host_with: null
+  shares_host_with:
+  - airy-3d
   inherited_from: null
+  alias_of: null
   verdict: scored
   score: 5
+  band: 4
+  band_label: moderate
   host_score: 5
   density: 2.34
   words: 2135
