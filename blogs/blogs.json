@@ -2,18 +2,15 @@
   "repo": "nasdaq-private-market",
   "feeds": [
     {
-      "source": "https://www.nasdaqprivatemarket.com/learning-hub/",
+      "source": "https://www.nasdaqprivatemarket.com/about-us/insights/",
       "feed_url": "https://www.nasdaqprivatemarket.com/feed/",
       "title": "",
       "saved": 0,
       "method": "discovered"
     },
     {
-      "source": "https://www.nasdaqprivatemarket.com/about-us/insights/",
-      "feed_url": "https://www.nasdaqprivatemarket.com/feed/",
-      "title": "",
-      "saved": 0,
-      "method": "discovered"
+      "source": "https://www.nasdaqprivatemarket.com/about-us/insights/feed/",
+      "error": "HTTPError"
     },
     {
       "source": "https://www.nasdaqprivatemarket.com/feed/",
@@ -23,8 +20,8 @@
       "method": "feed"
     }
   ],
-  "post_count": 22,
-  "fetched": "2026-10-03T12:30:02Z",
+  "post_count": 23,
+  "fetched": "2026-10-10T13:15:00Z",
   "feed_nature": "undetermined",
   "feed_nature_basis": null,
   "feed_nature_note": "Whether these posts are the vendor publishing or its support community, decided on the URL path grammar of the saved posts -- not the hostname, which carries both on Khoros, and not author diversity, which flags large vendor blogs as forums. 'undetermined' means undetermined."
