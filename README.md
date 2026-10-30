@@ -64,9 +64,107 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Nasdaq Private Market (NPM) operates infrastructure for the secondary market in pre-IPO private company equity — tender offers, company buybacks, auctions, block trades and a settlement engine for private share transfers — alongside a Data & Intelligence business built on NPM Price, a daily price estimate for 400+ liquid private companies, and Tape D, a private-company pricing dataset combining primary round data, secondary market transactions, mutual fund marks and 409A valuations. Securities are offered through NPM Securities, LLC (member FINRA/SIPC); SecondMarket Financial, LLC is an SEC-registered investment adviser and wholly owned subsidiary.
+Nasdaq Private Market (NPM) operates infrastructure for the secondary market in pre-IPO private company equity — tender offers, company buybacks, auctions, block trades and a settlement engine for private share transfers — alongside a Data & Intelligence business built on NPM Price, a daily price estimate for 400+ liquid private companies, and Tape D, a private-company pricing dataset combining primary round data, secondary market transactions, mutual fund marks and 409A valuations. Securities are offered through NPM Securities, LLC (member FINRA/SIPC); SecondMarket Financial, LLC is an SEC-registered investment adviser and wholly owned subsidiary. Programmatic access to Tape D is sold on the Premium tier and distributed exclusively through Nasdaq Data Link; NPM itself publishes no developer portal, API reference, or machine-readable specification.
 
-Programmatic access to Tape D is sold on the Premium tier and distributed exclusively through Nasdaq Data Link; NPM itself publishes no developer portal, API reference, or machine-readable specification.
+**Areas:** Company · Private Markets · Secondary Market · Market Data · Financial Services · Valuation · Pre-IPO Equity · Capital Markets
 
-- https://www.nasdaqprivatemarket.com/
-- https://www.nasdaqprivatemarket.com/data-intelligence/
+## Nasdaq Private Market on APIs.io
+
+Everything profiled for Nasdaq Private Market is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/nasdaq-private-market/](https://apis.io/providers/nasdaq-private-market/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Nasdaq Private Market Tape D API](https://apis.io/apis/nasdaq-private-market/tape-d/) — Tape D is NPM's private-company pricing and valuation dataset — real-time private market pricing integrating primary round data, secondary market…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [Moved to /providers/nasdaq-private-market/](https://apis.io/servers/nasdaq-private-market/nasdaq-private-market/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Nasdaq Private Market Authentication](https://apis.io/security/nasdaq-private-market/nasdaq-private-market-authentication/)
+- [Nasdaq Private Market Domain Security](https://apis.io/security/nasdaq-private-market/nasdaq-private-market-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Nasdaq Private Market Scopes](https://apis.io/scopes/nasdaq-private-market/nasdaq-private-market-scopes/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.nasdaqprivatemarket.com/)
+- [Documentation](https://www.nasdaqprivatemarket.com/learning-hub/)
+- [Getting started](https://www.nasdaqprivatemarket.com/learning-hub/)
+- [Pricing](https://www.nasdaqprivatemarket.com/data-intelligence/)
+- [Sign up](https://fe.secondmarket.com/preplatform/)
+- [Support](https://www.nasdaqprivatemarket.com/about-us/contact-us-3/)
+- [Blog](https://www.nasdaqprivatemarket.com/about-us/insights/)
+- [Compliance](https://www.nasdaqprivatemarket.com/data-intelligence/)
+- [Terms of service](https://www.nasdaqprivatemarket.com/terms-of-use/)
+- [Privacy policy](https://www.nasdaqprivatemarket.com/privacy-policy/)
+
+## API Evangelist rating
+
+**Kin Score 28.8** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 68.3 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 40.5 |
+| Access clarity | 46.1 |
+
+**Agent readiness 17.3** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | platform (partial credit) |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 37.0** — Securities & Market Data
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/nasdaq-private-market/](https://apis.io/providers/nasdaq-private-market/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Nasdaq Private Market: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/nasdaq-private-market/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
